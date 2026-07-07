@@ -116,7 +116,8 @@
 async function mpReq() {
 
 	// ---  Scrolls the main parent page to the top ---
-    window.top.scrollTo({ top: 0, behavior: 'smooth' });
+    //window.top.scrollTo({ top: 0, behavior: 'smooth' });
+	window.parent.postMessage({ action: 'scrollToTop' }, "*");
 	
     const form = document.getElementById("form");
     const payButton = document.querySelector("button[onclick='mpReq()']");
