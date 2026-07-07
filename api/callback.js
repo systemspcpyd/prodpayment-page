@@ -33,7 +33,7 @@ export default function handler(req, res) {
 				<!DOCTYPE html>
 				<html>
 				<head>
-					<link rel="stylesheet" href="/form.css">
+					<link rel="stylesheet" href="../css/form.css">
 				</head>
 				<body style="background-color: #121212; display: flex; align-items: center; justify-content: center; height: 100vh; margin: 0;">
 					<div class="pane-wrapper" style="width: 80%; max-width: 600px; padding: 20px;">
