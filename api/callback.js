@@ -28,34 +28,32 @@ export default function handler(req, res) {
 
 		// --- 3. RENDER UI OR REDIRECT ---
 		if (destination !== "") {
-			res.setHeader('Content-Type', 'text/html');
-			res.status(200).send(`
-				<!DOCTYPE html>
-				<html>
-				<head>
-					<link rel="stylesheet" href="../css/form.css">
-				</head>
-				<body style="background-color: #121212; display: flex; align-items: center; justify-content: center; height: 100vh; margin: 0;">
-					<div class="pane-wrapper" style="width: 80%; max-width: 600px; padding: 20px;">
-						<div class="label-bar">
-							<span>Response Body Received</span>
-						</div>
-						<div class="controls">
-							<pre style="background: #1e1e1e; padding: 15px; border: 1px solid #333; color: #e0e0e0; border-radius: 4px; overflow-x: auto;">${JSON.stringify(data, null, 4)}</pre>
-							<a href="${destination}?${queryParams}" class="button" style="text-decoration: none; display: inline-block;">
-								Continue to Payment
-							</a>
-						</div>
-					</div>
-				</body>
-				</html>
-			`);
+		    res.setHeader('Content-Type', 'text/html');
+		    res.status(200).send(`
+		        <html>
+		        <head>
+		            <link rel="stylesheet" href="/css/form.css">
+		        </head>
+		        <body style="background-color: #121212; color: #e0e0e0; font-family: sans-serif;">
+		            <div class="controls" style="padding: 20px;">
+		                <h2>Response Body Received</h2>
+		                <pre style="background: #1e1e1e; padding: 15px; border: 1px solid #333; border-radius: 4px; overflow-x: auto; color: #e0e0e0;">
+		                    ${JSON.stringify(data, null, 4)}
+		                </pre>
+		                
+		                <a href="${destination}?${queryParams}" class="button" style="text-decoration: none;">
+		                    Continue to Payment
+		                </a>
+		            </div>
+		        </body>
+		        </html>
+		    `);
 		} else {
-			res.redirect(302, `/payment-status.html?${queryParams}`);
+		    res.redirect(302, `/payment-status.html?${queryParams}`);
 		}
     } 
-    // --- HANDLE GET REQUESTS ---
-    else if (req.method === 'GET') {
+	    // --- HANDLE GET REQUESTS ---
+	    else if (req.method === 'GET') {
         // Capture any query parameters sent in the URL
         const queryParams = new URLSearchParams(req.query).toString();
         
