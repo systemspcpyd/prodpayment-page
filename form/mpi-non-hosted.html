@@ -149,7 +149,7 @@ async function mpReq() {
     const responseType = document.getElementById("MPI_RESPONSE_TYPE").value;
 
     // 1. Prepare fields (Set Return URL and handle empty fields)
-    document.getElementById("MPI_RETURN_URL").value = VERCEL_CALLBACK_URL;
+    // document.getElementById("MPI_RETURN_URL").value = VERCEL_CALLBACK_URL;
     
     const inputs = form.querySelectorAll('input, select, textarea');
     inputs.forEach(input => {
