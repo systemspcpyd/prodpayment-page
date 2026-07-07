@@ -168,9 +168,7 @@
             document.forms["form"]["MPI_MAC"].value = hextob64(sig.sign()).replace(/\+/g, '-').replace(/\//g, '_').replace(/=/g, '');
         }
 
-        headerRow.className = "row-header";
-        // ...
-        row.insertCell(2).innerHTML = item.MPI_CHANNEL_STATUS === 'A' 
+               row.insertCell(2).innerHTML = item.MPI_CHANNEL_STATUS === 'A' 
             ? '<span class="status-active">Active</span>' 
             : '<span class="status-offline">Offline</span>';
     </script>
